@@ -6,6 +6,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   battery_plus
   connectivity_plus
   screen_retriever_windows
+  url_launcher_windows
   window_manager
 )
 

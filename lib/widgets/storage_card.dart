@@ -37,7 +37,7 @@ class StorageCard extends StatelessWidget {
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),
-                  Text(MetricsUtils.formatBytes(disk.freeBytes) + ' free'),
+                  Text('${MetricsUtils.formatBytes(disk.freeBytes)} free'),
                 ],
               ),
               const SizedBox(height: 4),

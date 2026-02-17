@@ -316,15 +316,10 @@ class SystemProvider with ChangeNotifier {
       final battery = await PowerShellService.runJsonCommand(
         'Get-CimInstance Win32_Battery',
       );
-      // On desktops this returns empty
       if (battery.isEmpty) return null;
 
       final b = battery.first;
 
-      // Status codes: 1=Discharging, 2=AC, etc.
-      // But Win32_Battery often has confusing status codes.
-      // 2 = Unknown, 6 = Charging, 1 = Discharging?
-      // Let's rely on BatteryStatus
       final status = b['BatteryStatus'].toString();
 
       return BatteryInfo(
@@ -336,8 +331,7 @@ class SystemProvider with ChangeNotifier {
             int.tryParse(b['EstimatedChargeRemaining']?.toString() ?? '0') ?? 0,
         estimatedRunTime:
             int.tryParse(b['EstimatedRunTime']?.toString() ?? '0') ?? 0,
-        status:
-            status, // Decoding this requires mapping, keep raw for now or map 1-2 common ones
+        status: status,
       );
     } catch (e) {
       debugPrint('Error in _fetchBatteryInfo: $e');

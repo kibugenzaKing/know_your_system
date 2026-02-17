@@ -14,15 +14,41 @@ import 'package:know_your_system/widgets/network_card.dart';
 import 'package:know_your_system/widgets/display_card.dart';
 import 'package:know_your_system/widgets/battery_card.dart';
 import 'package:know_your_system/widgets/advanced_section.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final ValueNotifier<bool> hovered = ValueNotifier(false);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('System Transparency'),
+        title: InkWell(
+          onHover: (bool value) => hovered.value = value,
+          onTap: () => launchUrl(Uri.parse('https://king-kibugenza.web.app/')),
+          child: ValueListenableBuilder<bool>(
+            valueListenable: hovered,
+            builder: (_, bool value, _) {
+              return Container(
+                padding: const EdgeInsets.all(6.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: value ? Colors.blueGrey : null,
+                ),
+                child: Text(
+                  'Contact DEVELOPER',
+                  style: TextStyle(
+                    color: value ? Colors.white : Colors.blue,
+                    fontSize: value ? 20 : 17,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.copy),

@@ -17,7 +17,7 @@ class MemoryCard extends StatelessWidget {
 
     return InfoCard(
       title: 'Memory',
-      icon: Icons.sd_storage, // or monitor_memory if available
+      icon: Icons.sd_storage,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

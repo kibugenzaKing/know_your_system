@@ -10,7 +10,7 @@ class SummaryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.4),
+      color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: .4),
       margin: const EdgeInsets.all(8),
       child: Padding(
         padding: const EdgeInsets.all(24.0),

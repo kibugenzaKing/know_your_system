@@ -20,6 +20,7 @@ dependencies:
   provider: ^6.1.5+1
   win32: ^5.15.0
   window_manager: ^0.5.1
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:
