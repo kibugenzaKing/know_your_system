@@ -12,4 +12,4 @@ _ and more useful features.
 
 * This is easier to use than the native windows experience.
 
-Simply download ```Know Your System.exe``` above and run it.
+Simply download ```full_system_info.exe``` above and run it.
